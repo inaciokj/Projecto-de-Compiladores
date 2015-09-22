@@ -1,0 +1,316 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+#include <locale.h>
+#include "pseudoscanner.h"
+//#include "pseudoscanner.l"
+//#include "pseudoparser.y"
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+extern int yylineno;  
+extern int yylex();
+extern char* yytext;
+extern int yyleng;
+
+int main(int argc, char *argv[]) {
+	
+	setlocale(LC_ALL, "Portuguese");  
+	
+	int itoken = yylex();
+	int i;
+	int num = 0;
+	int palavra = 0;
+	int letra = 0;
+	int caract = 0;
+	
+	while(itoken){
+		switch(itoken){
+			case (INTEIRO):  
+			{
+				num = 0;
+				for( i = 0; i < yyleng; i++){
+					if(isdigit(*(yytext + i)))
+					num++;
+				}
+				printf("\n%s  É um Número Inteiro com %d Algarismos !!!\n", yytext, num ); 
+				system("pause"); 
+				break;
+			}
+			
+			case (NOMES_VARIAVEL):
+			{
+				letra = 0;
+				for( i = 0; i < yyleng; i++){
+					if(isdigit(*(yytext + i)))
+					letra++;
+				}	
+				printf("\n%s  É um Número Inteiro com %d Algarismos !!!\n", yytext, letra ); 
+				system("pause"); 
+				break;
+			}
+			
+			case (PALAVRA_CHAVE):
+			{
+				palavra = 0;
+				for( i = 0; i < yyleng; i++){
+					if(isdigit(*(yytext + i)))
+					palavra++;
+				}				
+				printf("\n%s  É uma Palavra Reservada com %d Algarismos !!!\n", yytext, palavra ); 
+				system("pause"); 
+				break;
+			}
+		
+			case (PARA):
+			{
+				palavra = 0;
+				for( i = 0; i < yyleng; i++){
+					if(isdigit(*(yytext + i)))
+					palavra++;
+				}				
+				printf("\n%s  É uma Palavra Reservada com %d Algarismos !!!\n", yytext, palavra ); 
+				system("pause"); 
+				break;
+			}
+			
+			case (FIMSE):
+			{
+				palavra = 0;
+				for( i = 0; i < yyleng; i++){
+					if(isdigit(*(yytext + i)))
+					palavra++;
+				}				
+				printf("\n%s  É uma Palavra Reservada com %d Algarismos !!!\n", yytext, palavra ); 
+				system("pause"); 
+				break;
+			}
+			
+			case (LEIA):
+			{
+				palavra = 0;
+				for( i = 0; i < yyleng; i++){
+					if(isdigit(*(yytext + i)))
+					palavra++;
+				}				
+				printf("\n%s  É uma Palavra Reservada com %d Algarismos !!!\n", yytext, palavra ); 
+				system("pause"); 
+				break;
+			}
+			
+			case (ESCREVA):
+			{
+				palavra = 0;
+				for( i = 0; i < yyleng; i++){
+					if(isdigit(*(yytext + i)))
+					palavra++;
+				}				
+				printf("\n%s  É uma Palavra Reservada com %d Algarismos !!!\n", yytext, palavra ); 
+				system("pause"); 
+				break;
+			}
+			
+			case (SE):
+			{
+				palavra = 0;
+				for( i = 0; i < yyleng; i++){
+					if(isdigit(*(yytext + i)))
+					palavra++;
+				}				
+				printf("\n%s  É uma Palavra Reservada com %d Algarismos !!!\n", yytext, palavra ); 
+				system("pause"); 
+				break;
+			}
+			
+			case (SENAO):
+			{
+				palavra = 0;
+				for( i = 0; i < yyleng; i++){
+					if(isdigit(*(yytext + i)))
+					palavra++;
+				}				
+				printf("\n%s  É uma Palavra Reservada com %d Algarismos !!!\n", yytext, palavra ); 
+				system("pause"); 
+				break;
+			}
+			
+			case (ENTAO):
+			{
+				palavra = 0;
+				for( i = 0; i < yyleng; i++){
+					if(isdigit(*(yytext + i)))
+					palavra++;
+				}				
+				printf("\n%s  É uma Palavra Reservada com %d Algarismos !!!\n", yytext, palavra ); 
+				system("pause"); 
+				break;
+			}
+			
+			case (ESPACOS_EM_BRANCO):
+			{
+				palavra = 0;
+				for( i = 0; i < yyleng; i++){
+					if(isdigit(*(yytext + i)))
+					palavra++;
+				}				
+				printf("\n%s  É um Espaço em Branco !!!\n", yytext ); 
+				system("pause"); 
+				break;
+			}
+			
+			case (ATRIBUICAO):
+			{				
+				printf("\n%s É um Caracter Reservado a Linguagem !!!\n", yytext); 
+				system("pause"); 
+				break;
+			}
+			
+			case (DIFERENTE):
+			{				
+				printf("\n%s É um Caracter Reservado a Linguagem !!!\n", yytext); 
+				system("pause"); 
+				break;
+			}
+			
+			case (MENOR_OU_IGUAL):    
+			{
+				printf("\n%s É um Caracter Reservado a Linguagem !!!\n", yytext); 
+				system("pause"); 
+				break;
+			}
+			
+			case (MAIOR_OU_IGUAL):
+			{
+				printf("\n%s É um Caracter Reservado a Linguagem !!!\n", yytext); 
+				system("pause"); 
+				break;
+			}
+			
+			case (MENOR):
+			{
+				printf("\n%s É um Caracter Reservado a Linguagem !!!\n", yytext); 
+				system("pause"); 
+				break;
+			}
+			
+			case (MAIOR):
+			{
+				printf("\n%s É um Caracter Reservado a Linguagem !!!\n", yytext); 
+				system("pause"); 
+				break;
+			}
+			   
+			case (LOGICA_NAO):
+			{
+				palavra = 0;
+				for( i = 0; i < yyleng; i++){
+					if(isdigit(*(yytext + i)))
+					palavra++;
+				}
+				printf("\n%s É um Caracter Reservado a Linguagem com %d Letras!!!\n", yytext, palavra ); 
+				system("pause"); 
+				break;
+			}
+			
+			case (LOGICA_OU):
+			{
+				palavra = 0;
+				for( i = 0; i < yyleng; i++){
+					if(isdigit(*(yytext + i)))
+					palavra++;
+				}
+				printf("\n%s É um Caracter Reservado a Linguagem com %d Letras!!!\n", yytext, palavra );
+				system("pause"); 
+				break;
+			}
+			
+			case (LOGICA_E):
+			{
+				palavra = 0;
+				for( i = 0; i < yyleng; i++){
+					if(isdigit(*(yytext + i)))
+					palavra++;
+				}
+				printf("\n%s É um Caracter Reservado a Linguagem com %d Letras!!!\n", yytext, palavra );
+				system("pause"); 
+				break;
+			}
+			
+			case (ABRE_PARENTESES):
+			{
+				printf("\n%s Abrir Parenteses !!!\n", yytext ); 
+				system("pause"); 
+				break;
+			}
+			
+			case (FECHA_PARENTESES):
+			{
+				printf("\n%s Fechar Parenteses !!!\n", yytext ); 
+				system("pause"); 
+				break;
+			}
+			
+			case (ABRE_PARENTESES_RETOS):
+			{
+				printf("\n%s Abrir Parenteses Rectos !!!\n", yytext ); 
+				system("pause"); 
+				break;
+			}
+			
+			case (FECHA_PARENTESES_RETOS):
+			{
+				printf("\n%s Fechar Parenteses Rectos !!!\n", yytext ); 
+				system("pause"); 
+				break;
+			}
+			
+			case (PONTO_VIRGULA):
+			{
+				printf("\n%s é um Ponto e Vírgula !!!\n", yytext ); 
+				system("pause"); 
+				break;
+			}
+		
+			case (ADICAO):
+			{
+				printf("\n%s é um Sinal de Adição !!!\n", yytext ); 
+				system("pause"); 
+				break;
+			}
+			
+			case (SUBTRACCAO):
+			{
+				printf("\n%s é um Sinal de Subtracção !!!\n", yytext ); 
+				system("pause"); 
+				break;
+			}
+			
+			case (MULTIPLICACAO):
+			{
+				printf("\n%s é um Sinal de Multiplicação !!!\n", yytext ); 
+				system("pause"); 
+				break;
+			}
+			
+			case (DIVISAO):
+			{
+				printf("\n%s é um Sinal de Divisão !!!\n", yytext ); 
+				system("pause"); 
+				break;
+			}
+			
+			case (ERROR):
+			{
+				printf("\nÉ um Caracter Desconhecido !!!\n" ); 
+				//printf("%s  É um Caracter Desconhecido !!!\n", yytext ); 
+				caract++;   
+				system("pause"); 
+				break;
+			}
+		}				
+		itoken = yylex();
+	}
+	system("pause"); 	
+	return 0;
+}
